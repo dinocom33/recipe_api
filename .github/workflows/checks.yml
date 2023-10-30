@@ -1,0 +1,14 @@
+---
+name: Checks
+
+on: [ push ]
+
+jobs:
+  test-lint:
+    name: Test
+    runs-on: ubuntu.20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Test
+        run: python manage.py test
