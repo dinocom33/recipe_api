@@ -57,7 +57,7 @@ WSGI_APPLICATION = 'recipe_api.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get('DB_NAME'),
+        "NAME": os.getenv('DB_NAME', 'db'),
         "USER": os.getenv('DB_USER'),
         "PASSWORD": os.getenv('DB_PASSWORD'),
         "HOST": os.getenv('DB_HOST'),
