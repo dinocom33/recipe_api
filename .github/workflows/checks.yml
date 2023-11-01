@@ -10,12 +10,11 @@ jobs:
     services:
       postgresql:
         image: postgres:14
+        ports: ['5432:5432']
         env:
           POSTGRES_DB: test
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          ports: 5432
-
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -32,5 +31,5 @@ jobs:
 
       - name: Run tests
         run:
-          python manage.py migrate --database test
+          python manage.py migrate --database=test
           python manage.py test
