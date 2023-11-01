@@ -21,6 +21,7 @@ jobs:
           sudo systemctl start postgresql.service
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          pithon manage.py migrate
 
       - name: Run tests
         run: python manage.py test
