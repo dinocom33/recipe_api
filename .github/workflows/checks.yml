@@ -23,10 +23,11 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.11
+
       - name: Install dependencies
         run: |
-#          sudo apt install -y postgresql postgresql-contrib
-#          sudo systemctl start postgresql.service
+          sudo apt install -y postgresql postgresql-contrib
+          sudo systemctl start postgresql.service
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           python manage.py migrate
