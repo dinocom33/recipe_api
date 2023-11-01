@@ -26,8 +26,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-#          sudo apt install -y postgresql postgresql-contrib
-#          sudo systemctl start postgresql.service
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           python manage.py migrate
