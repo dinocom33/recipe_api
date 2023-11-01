@@ -31,5 +31,5 @@ jobs:
 
       - name: Run tests
         run:
-          python manage.py migrate --database=test
+          python manage.py migrate --fake
           python manage.py test
