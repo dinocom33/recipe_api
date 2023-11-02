@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'user',
 
     'rest_framework',
+    'rest_framework.authtoken',
     'drf_spectacular',
 ]
 
@@ -123,5 +124,7 @@ AUTH_USER_MODEL = 'core.User'
 
 
 REST_FRAMEWORK = {
+    'TITLE': 'Recipe API',
+    'DESCRIPTION': 'A simple recipe API',
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
