@@ -31,3 +31,10 @@ class UserAdmin(BaseUserAdmin):
 
 
 admin.site.register(models.User, UserAdmin)
+
+
+@admin.register(models.Recipe)
+class RecipeAdmin(admin.ModelAdmin):
+    list_display = ['user', 'title', 'time_minutes', 'price', 'link']
+    list_filter = ['title']
+    search_fields = ['title', 'description', 'link']
