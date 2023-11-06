@@ -11,7 +11,7 @@ from core.models import Recipe, Tag
 from recipe import serializers
 
 
-@extend_schema(tags=['Recipe App'])
+@extend_schema(tags=['Recipe'])
 class RecipeViewSet(viewsets.ModelViewSet):
     """View for manage recipe APIs."""
 
@@ -39,7 +39,7 @@ class RecipeViewSet(viewsets.ModelViewSet):
         serializer.save(user=self.request.user)
 
 
-@extend_schema(tags=['Tag App'])
+@extend_schema(tags=['Tag'])
 class TagViewSet(mixins.UpdateModelMixin, mixins.DestroyModelMixin, mixins.ListModelMixin, viewsets.GenericViewSet):
     """View for manage tag APIs."""
 

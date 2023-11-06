@@ -9,14 +9,14 @@ from rest_framework.settings import api_settings
 from drf_spectacular.utils import extend_schema
 
 
-@extend_schema(tags=['Users App'])
+@extend_schema(tags=['User'])
 class UserCreateView(generics.CreateAPIView):
     """Create a new user in the system."""
 
     serializer_class = UserSerializer
 
 
-@extend_schema(tags=['Users App'])
+@extend_schema(tags=['User'])
 class CreateTokenView(ObtainAuthToken):
     """Create a new auth token for the user."""
 
@@ -24,7 +24,7 @@ class CreateTokenView(ObtainAuthToken):
     renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES
 
 
-@extend_schema(tags=['Users App'])
+@extend_schema(tags=['User'])
 class ManageUserView(generics.RetrieveUpdateAPIView):
     """Manage the authenticated user."""
 
