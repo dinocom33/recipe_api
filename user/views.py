@@ -6,14 +6,17 @@ from rest_framework import generics, authentication, permissions
 from rest_framework.authtoken.views import ObtainAuthToken
 from user.serializers import UserSerializer, AuthTokenSerializer
 from rest_framework.settings import api_settings
+from drf_spectacular.utils import extend_schema
 
 
+@extend_schema(tags=['Users App'])
 class UserCreateView(generics.CreateAPIView):
     """Create a new user in the system."""
 
     serializer_class = UserSerializer
 
 
+@extend_schema(tags=['Users App'])
 class CreateTokenView(ObtainAuthToken):
     """Create a new auth token for the user."""
 
@@ -21,6 +24,7 @@ class CreateTokenView(ObtainAuthToken):
     renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES
 
 
+@extend_schema(tags=['Users App'])
 class ManageUserView(generics.RetrieveUpdateAPIView):
     """Manage the authenticated user."""
 

@@ -129,6 +129,7 @@ REST_FRAMEWORK = {
 }
 
 SPECTACULAR_SETTINGS = {
+    'SCHEMA_PATH_PREFIX': r'/v1/',
     'COMPONENT_SPLIT_REQUEST': True,
     'TITLE': 'Recipe API',
     'DESCRIPTION': 'A simple recipe API',
