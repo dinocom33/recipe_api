@@ -4,10 +4,10 @@ Views for the recipe API.
 
 from rest_framework import viewsets, mixins
 from rest_framework.authentication import TokenAuthentication
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.permissions import IsAuthenticated
 from drf_spectacular.utils import extend_schema
 
-from core.models import Recipe, Tag
+from core.models import Recipe, Tag, Ingredient
 from recipe import serializers
 
 
@@ -52,3 +52,19 @@ class TagViewSet(mixins.UpdateModelMixin, mixins.DestroyModelMixin, mixins.ListM
         """Retrieve tags for authenticated user."""
 
         return self.queryset.filter(user=self.request.user).order_by('-name')
+
+
+@extend_schema(tags=['Ingredient'])
+class IngredientViewSet(mixins.UpdateModelMixin, mixins.DestroyModelMixin, mixins.ListModelMixin, viewsets.GenericViewSet):
+    """View for manage ingredient APIs."""
+
+    serializer_class = serializers.IngredientSerializer
+    queryset = Ingredient.objects.all()
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        """Retrieve ingredients for authenticated user."""
+
+        return self.queryset.filter(user=self.request.user).order_by('-name')
+

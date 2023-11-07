@@ -4,7 +4,7 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.utils.translation import gettext_lazy as _
 
 from core import models
-from core.models import Tag
+from core.models import Tag, Ingredient
 
 User = get_user_model()
 
@@ -43,6 +43,13 @@ class RecipeAdmin(admin.ModelAdmin):
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
+    list_display = ['name', 'user']
+    list_filter = ['name', 'user__email']
+    search_fields = ['name', 'user__email']
+
+
+@admin.register(Ingredient)
+class IngredientsAdmin(admin.ModelAdmin):
     list_display = ['name', 'user']
     list_filter = ['name', 'user__email']
     search_fields = ['name', 'user__email']
