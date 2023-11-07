@@ -108,7 +108,11 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+
+# MEDIA_ROOT = '/media'
+# STATIC_ROOT = '/vol/web/static'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -135,3 +139,5 @@ SPECTACULAR_SETTINGS = {
     'DESCRIPTION': 'A simple recipe API',
     'VERSION': '1.0.0',
 }
+
+
