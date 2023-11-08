@@ -111,21 +111,18 @@ USE_TZ = True
 STATIC_URL = '/static/static/'
 MEDIA_URL = '/static/media/'
 
-MEDIA_ROOT = '/static/media'
-STATIC_ROOT = '/static/static'
+# MEDIA_ROOT = '/static/media'
+# STATIC_ROOT = '/static/static'
+
+STATIC_ROOT = BASE_DIR / 'static_files'
+STATICFILES_DIRS = [
+    BASE_DIR / "static/",
+]
+MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'core.User'
-
-# STATIC_URL = '/static/'
-# STATIC_ROOT = BASE_DIR / 'static_files'
-# STATICFILES_DIRS = [
-#     BASE_DIR / "static/",
-# ]
-#
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = BASE_DIR / 'media'
 
 
 REST_FRAMEWORK = {
